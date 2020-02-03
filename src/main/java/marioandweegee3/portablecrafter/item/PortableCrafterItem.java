@@ -1,10 +1,6 @@
 package marioandweegee3.portablecrafter.item;
 
-import marioandweegee3.portablecrafter.PortableCrafterMod;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.container.Container;
-import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -14,7 +10,7 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 
-public class PortableCrafterItem extends Item implements INamedContainerProvider {
+public class PortableCrafterItem extends Item {
 
     public PortableCrafterItem(Properties properties) {
         super(properties);
@@ -25,20 +21,18 @@ public class PortableCrafterItem extends Item implements INamedContainerProvider
         ItemStack stack = playerIn.getHeldItem(handIn);
 
         if(!worldIn.isRemote) {
-            playerIn.openContainer(this);
+            ITextComponent name = null;
+
+            if(stack.hasDisplayName()) {
+                name = stack.getDisplayName();
+            } else {
+                name = new TranslationTextComponent(this.getTranslationKey());
+            }
+
+            playerIn.openContainer(new PortableCrafterContainerProvider(name));
         }
 
         return ActionResult.newResult(ActionResultType.SUCCESS, stack);
-    }
-
-    @Override
-    public Container createMenu(int syncId, PlayerInventory playerInv, PlayerEntity player) {
-        return PortableCrafterMod.PORTABLE_CRAFTER.create(syncId, playerInv);
-    }
-
-    @Override
-    public ITextComponent getDisplayName() {
-        return new TranslationTextComponent(this.getTranslationKey());
     }
 
 }
