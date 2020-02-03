@@ -32,7 +32,7 @@ public class PortableCrafterItem extends Item {
             playerIn.openContainer(new PortableCrafterContainerProvider(name));
         }
 
-        return ActionResult.newResult(ActionResultType.SUCCESS, stack);
+        return new ActionResult<ItemStack>(ActionResultType.SUCCESS, stack);
     }
 
 }
