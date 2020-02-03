@@ -1,0 +1,18 @@
+{
+    "type":"crafting_shaped",
+    "pattern":[
+        "c",
+        "s"
+    ],
+    "key":{
+        "c":{
+            "item":"crafting_table"
+        },
+        "s":{
+            "item":"stick"
+        }
+    },
+    "result":{
+        "item":"portablecrafter:portable_crafter"
+    }
+}

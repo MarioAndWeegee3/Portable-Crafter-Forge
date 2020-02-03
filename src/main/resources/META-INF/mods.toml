@@ -1,0 +1,27 @@
+modLoader="javafml"
+loaderVersion="[28,)"
+
+[[mods]]
+	modId="portablecrafter"
+	version="${file.jarVersion}"
+	displayName="Portable Crafter"
+	description='''
+	Adds a handheld version of the vanilla crafting table.
+	'''
+	authors="MarioAndWeegee3"
+	logoFile="assets/portablecrafter/logo.png"
+	
+	[[dependencies.portablecrafter]]
+		modId="forge"
+		mandatory=true
+		versionRange="[28,)"
+		ordering="NONE"
+		side="BOTH"
+
+	[[dependencies.portablecrafter]]
+		modId="minecraft"
+		mandatory=true
+		versionRange="[1.14.4]"
+		ordering="NONE"
+		side="BOTH"
+	
