@@ -9,7 +9,7 @@ loaderVersion="[31,)"
 	Adds a handheld version of the vanilla crafting table.
 	'''
 	authors="MarioAndWeegee3"
-	logoFile="assets/portablecrafter/logo.png"
+	logoFile="logo.png"
 	
 	[[dependencies.portablecrafter]]
 		modId="forge"
